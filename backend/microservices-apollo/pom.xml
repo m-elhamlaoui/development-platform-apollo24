@@ -12,6 +12,7 @@
     <modules>
         <module>user</module>
         <module>notification</module>
+        <module>models</module>
     </modules>
 
     <name>apolloservices</name>
