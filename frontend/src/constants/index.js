@@ -31,6 +31,7 @@ export const features = [
     id: "feature-2",
     icon: shield,
     title: "Earth explore",
+    link: "/EarthExplore",
     content:
       "We take proactive steps make sure your information and transactions are secure.",
   },
