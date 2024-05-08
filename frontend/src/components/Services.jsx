@@ -27,7 +27,9 @@ const Services = () =>  (
 
       <div className={`${layout.sectionImg} flex-row`}>
         {features.map((feature, index) => (
-          <FeatureCard key={feature.id} {...feature} index={index} />
+          <a href={feature.link} key={feature.id}>
+            <FeatureCard {...feature} index={index} />
+          </a>
         ))}
       </div>
     </div>
