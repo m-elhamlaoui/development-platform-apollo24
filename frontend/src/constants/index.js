@@ -24,6 +24,7 @@ export const features = [
     id: "feature-1",
     icon: star,
     title: "Solar system 3d explore",
+    link: "/SolarExplore",
     content:
       "The best credit cards offer some tantalizing combinations of promotions and prizes",
   },
