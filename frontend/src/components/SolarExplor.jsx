@@ -1,10 +1,9 @@
-// EarthExplore.jsx
-import React from 'react';
-import styles from "../style"; 
+import React from 'react'
+import HeroSolar from './HeroSolar';
 import { Hero, Navbar, Footer } from "../components";
-import HeroEarth from './HeroEarth';
+import styles from "../style"; 
 
-const EarthExplore = () => {
+const SolarExplor = () => {
   return (
     <div className="bg-primary w-full overflow-hidden">
       <div className={`${styles.paddingX} ${styles.flexCenter}`}>
@@ -14,7 +13,7 @@ const EarthExplore = () => {
       </div>
       <div className={`bg-primary ${styles.flexStart}`}>
         <div className={styles.boxWidth}>
-          <HeroEarth />
+          <HeroSolar />
         </div>
       </div>
 
@@ -22,4 +21,4 @@ const EarthExplore = () => {
   );
 }
 
-export default EarthExplore;
+export default SolarExplor

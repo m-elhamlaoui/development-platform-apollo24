@@ -140,5 +140,5 @@
   filter: blur(750px);
 }
 canvas {
-  height: 200vh !important;
+  height: 100vh !important;
 }
