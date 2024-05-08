@@ -3169,14 +3169,20 @@
       "buffer": 0,
       "byteLength": 92208,
       "byteOffset": 2337464,
+<<<<<<< HEAD
       "byteStride": 12,
+=======
+>>>>>>> 9415339e72b98c74270bcdcebe184049310e7dc7
       "name": "floatBufferViews"
     },
     {
       "buffer": 0,
       "byteLength": 149280,
       "byteOffset": 2429672,
+<<<<<<< HEAD
       "byteStride": 16,
+=======
+>>>>>>> 9415339e72b98c74270bcdcebe184049310e7dc7
       "name": "floatBufferViews"
     }
   ],

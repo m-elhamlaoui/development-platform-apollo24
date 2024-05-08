@@ -10,11 +10,15 @@ Title: Solar System animation
 import React, { useEffect, useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { useGLTF, useAnimations } from '@react-three/drei'
+import React, { useRef } from 'react'
+import { useGLTF, useAnimations } from '@react-three/drei'
+import { useEffect } from 'react'
 
 export default function Model(props) {
   const group = useRef()
   const { nodes, materials, animations } = useGLTF('./solar_system/solar_system.gltf')
-  const { actions,names } = useAnimations(animations, group)
+  const { actions, names } = useAnimations(animations, group)
+
   useEffect(() => {
       actions[names[0]].reset().play();
   }, [actions, names]);
