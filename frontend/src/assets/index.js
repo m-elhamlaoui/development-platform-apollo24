@@ -25,6 +25,7 @@ import people02 from "./people02.png";
 import people03 from "./people03.png";
 import logo1 from "./logo1.svg";
 import astronomy from "./astronomy.jpg"
+import github from "./github.svg"
 
 export {
   astronomy,
@@ -54,4 +55,5 @@ export {
   people01,
   people02,
   people03,
+  github
 };

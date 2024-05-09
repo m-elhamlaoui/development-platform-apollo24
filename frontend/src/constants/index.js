@@ -39,7 +39,8 @@ export const features = [
   {
     id: "feature-3",
     icon: send,
-    title: "Magazine & Products",
+    title: "News & Events",
+    link: "/News&Events",
     content:
       "A balance transfer credit card can save you a lot of money in interest charges.",
   },

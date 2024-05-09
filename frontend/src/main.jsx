@@ -7,6 +7,7 @@ import Login from './components/Login.jsx'
 import Register from './components/Register.jsx'
 import EarthExplore from './components/EarthExplore.jsx';
 import SolarExplor from './components/SolarExplor.jsx'
+import News from './components/News.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -17,6 +18,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Route path='/register' element={<Register/>}></Route>
       <Route path='/EarthExplore' element={<EarthExplore/>}></Route>
       <Route path='/SolarExplore' element={<SolarExplor/>}></Route>
+      <Route path='/News&Events' element={<News/>}></Route>
     </Routes>
     </BrowserRouter>
   </React.StrictMode>,

@@ -13,11 +13,11 @@ const Login = () => {
       <div class="bg-third rounded-md border-[1px] border-gray-600 w-[300px]">
         <div class="p-5">
           <label class="text-white font-poppins">Email</label><br></br>
-          <input type="text" class="bg-primary rounded-md mt-2 border-gray-600 border-[1px] w-full"></input>
+          <input type="text" class="bg-primary rounded-md mt-2 border-gray-600 border-[1px] w-full text-white"></input>
         </div>
         <div class="p-5">
           <label class="text-white font-poppins">Password</label><br></br>
-          <input type="text" class="bg-primary rounded-md border-gray-600 border-[1px] mt-2 w-full"></input>
+          <input type="password" class="bg-primary rounded-md border-gray-600 border-[1px] mt-2 w-full text-white"></input>
         </div>
         <div class="p-5 flex justify-center items-center w-full">
           <Button text="Sign in"></Button>

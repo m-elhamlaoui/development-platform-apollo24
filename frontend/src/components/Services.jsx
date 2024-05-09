@@ -5,7 +5,7 @@ import Button from "./Button";
 
 const FeatureCard = ({ icon, title, content, index }) => (
   <div className={`flex flex-row p-6 rounded-[20px] ${index !== features.length - 1 ? "mb-6" : "mb-0"} feature-card`}>
-    <div className="flex-1 flex flex-col ml-3">
+    <div className="flex-1 flex flex-col">
       <h4 className="font-poppins font-semibold text-white text-[18px] leading-[23.4px] mb-1">
         {title}
       </h4>
@@ -17,8 +17,8 @@ const FeatureCard = ({ icon, title, content, index }) => (
 );
 
 const Services = () =>  (
-  <section id="features" className={layout.section}>
-    <div className="flex-row">
+  <section id="features" className={`${layout.section} h-screen w-screen`}>
+    <div className="flex flex-col justify-around items-center">
       <div className={`${layout.sectionInfo} text-center`}>
         <h2 className={styles.heading2}>
           Check our Servises

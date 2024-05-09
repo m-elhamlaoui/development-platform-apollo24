@@ -23,6 +23,15 @@ module.exports = {
       lg: "1200px",
       xl: "1700px",
     },
+            animation: {
+        'infinite-scroll': 'infinite-scroll 25s linear infinite',
+        },
+    keyframes: {
+        'infinite-scroll': {
+          '0%': { transform: 'translateX(100%)' }, // Start from the right side
+          '100%': { transform: 'translateX(-100%)' }, // End on the left side
+        }
+      }
   },
   plugins: [],
 };
