@@ -20,7 +20,6 @@ public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idUser;
-    
     private String username;
     private String fullname;
     private String email;
