@@ -10,16 +10,35 @@ Title: Solar System animation
 import React, { useRef, useState } from 'react'
 import { useGLTF, useAnimations } from '@react-three/drei'
 import { useEffect } from 'react'
+import {gsap} from 'gsap'
+import { useThree, useFrame } from '@react-three/fiber'
+import * as THREE from 'three'; // Import THREE
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 export default function Model(props) {
   const group = useRef();
   const { nodes, materials, animations } = useGLTF('./solar_system/solar_system.gltf');
   const { actions, names } = useAnimations(animations, group);
   const [hoveredPlanet, setHoveredPlanet] = useState(null);
+  const { camera, gl } = useThree();
+  const controls = useRef(new OrbitControls(camera, gl.domElement));
 
   useEffect(() => {
+    controls.current = new OrbitControls(camera, gl.domElement);
+    controls.current.enableDamping = true;
+    controls.current.dampingFactor = 0.25;
+    controls.current.enableZoom = true;
+
     actions[names[0]].reset().play();
-  }, [actions, names]);
+
+    return () => {
+      controls.current.dispose();
+    };
+  }, [actions, names, camera, gl]);
+
+  useFrame(() => {
+    controls.current.update();
+  });
 
   const handlePointerOver = (e, planet) => {
     e.stopPropagation();
@@ -30,6 +49,55 @@ export default function Model(props) {
     e.stopPropagation();
     setHoveredPlanet(null);
   };
+
+  const handlePlanetClick = (e, planetName) => {
+    if (!controls.current) {
+      console.error("OrbitControls not initialized");
+      return;
+    }
+
+    // Get the clicked planet object
+    const planet = e.object.parent;
+
+    // Create a function to update the camera position and target
+    const updateCamera = () => {
+        const planetPosition = planet.getWorldPosition(new THREE.Vector3());
+        const newCameraPosition = planetPosition.clone().add(new THREE.Vector3(0, 0, 20));
+
+        // Log the position of the clicked planet
+        console.log(`Position of ${planetName}: `, planetPosition);
+
+        // Update the camera position
+        gsap.to(camera.position, {
+            x: newCameraPosition.x,
+            y: newCameraPosition.y,
+            z: newCameraPosition.z,
+            duration: 1,
+            onUpdate: () => controls.current.update()
+        });
+
+        // Update the camera target
+        gsap.to(controls.current.target, {
+            x: planetPosition.x,
+            y: planetPosition.y,
+            z: planetPosition.z,
+            duration: 1,
+            onUpdate: () => controls.current.update()
+        });
+    };
+
+    // Call the update function immediately
+    updateCamera();
+
+    // Call the update function continuously to track the planet's position
+    const intervalId = setInterval(updateCamera, 100); // Adjust the interval as needed
+
+    // Stop tracking when the mouse is released
+    window.addEventListener("mouseup", () => {
+        clearInterval(intervalId);
+    }, { once: true });
+};
+
 
   return (
     <group ref={group} {...props} dispose={null}>
@@ -43,6 +111,7 @@ export default function Model(props) {
                 scale={9.695}
                 onPointerOver={(e) => handlePointerOver(e, 'mercury')}
                 onPointerOut={handlePointerOut}
+                onClick={(e) => handlePlanetClick(e, 'mercury')}
               >
                 <group name="mercury_2" position={[0, 0, 1]} rotation={[1.739, -0.875, 1.237]} scale={hoveredPlanet === 'mercury' ? 0.05 : 0.038}>
                   <mesh name="Object_5" geometry={nodes.Object_5.geometry} material={materials.mercury} />
@@ -55,6 +124,7 @@ export default function Model(props) {
                 scale={12.235}
                 onPointerOver={(e) => handlePointerOver(e, 'venus')}
                 onPointerOut={handlePointerOut}
+                onClick={(e) => handlePlanetClick(e, 'venus')}
               >
                 <group name="venus_5" position={[0, 0, 1]} rotation={[0, 0, Math.PI / 2]} scale={hoveredPlanet === 'venus' ? 0.12 : 0.102}>
                   <mesh name="Object_8" geometry={nodes.Object_8.geometry} material={materials.venus} />
@@ -66,6 +136,7 @@ export default function Model(props) {
                 scale={16.115}
                 onPointerOver={(e) => handlePointerOver(e, 'earth')}
                 onPointerOut={handlePointerOut}
+                onClick={(e) => handlePlanetClick(e, 'earth')}
               >
                 <group name="erath_8" position={[0, 0, 1]} rotation={[0.819, 0, 0]} scale={hoveredPlanet === 'earth' ? 0.072 : 0.062}>
                   <mesh name="Object_11" geometry={nodes.Object_11.geometry} material={materials.earth} />
@@ -77,6 +148,7 @@ export default function Model(props) {
                 scale={20.451}
                 onPointerOver={(e) => handlePointerOver(e, 'mars')}
                 onPointerOut={handlePointerOut}
+                onClick={(e) => handlePlanetClick(e, 'mars')}
               >
                 <group name="mars_12" position={[0, 0, 1]} rotation={[0, 0, Math.PI / 2]} scale={hoveredPlanet === 'mars' ? 0.035 : 0.025}>
                   <mesh name="Object_14" geometry={nodes.Object_14.geometry} material={materials.mars} />
@@ -88,6 +160,7 @@ export default function Model(props) {
                 scale={28.775}
                 onPointerOver={(e) => handlePointerOver(e, 'jupiter')}
                 onPointerOut={handlePointerOut}
+                onClick={(e) => handlePlanetClick(e, 'jupiter')}
               >
                 <group name="jupiter_15" position={[0, 0, 1]} scale={hoveredPlanet === 'jupiter' ? 0.105 : 0.095}>
                   <mesh name="Object_17" geometry={nodes.Object_17.geometry} material={materials.jupiter} />
@@ -99,6 +172,7 @@ export default function Model(props) {
                 scale={36.61}
                 onPointerOver={(e) => handlePointerOver(e, 'saturn')}
                 onPointerOut={handlePointerOut}
+                onClick={(e) => handlePlanetClick(e, 'saturn')}
               >
                 <group name="saturn_19" position={[0, 0, 1]} scale={hoveredPlanet === 'saturn' ? 0.069 : 0.059}>
                   <group name="saturn_ring_18" position={[0.01, -0.067, 0]} rotation={[0, 0, 0.351]} scale={1.739}>
@@ -113,6 +187,7 @@ export default function Model(props) {
                 scale={44.26}
                 onPointerOver={(e) => handlePointerOver(e, 'uranus')}
                 onPointerOut={handlePointerOut}
+                onClick={(e) => handlePlanetClick(e, 'uranus')}
               >
                 <group name="uranus_22" position={[0, 0, 1]} rotation={[0, 0, Math.PI / 2]} scale={hoveredPlanet === 'uranus' ? 0.03 : 0.02}>
                   <mesh name="Object_25" geometry={nodes.Object_25.geometry} material={materials.uranus} />
@@ -124,6 +199,7 @@ export default function Model(props) {
                 scale={49.927}
                 onPointerOver={(e) => handlePointerOver(e, 'neptune')}
                 onPointerOut={handlePointerOut}
+                onClick={(e) => handlePlanetClick(e, 'neptune')}
               >
                 <group name="neptune_25" position={[0, 0, 1]} rotation={[0, 0, Math.PI / 2]} scale={hoveredPlanet === 'neptune' ? 0.034 : 0.024}>
                   <mesh name="Object_28" geometry={nodes.Object_28.geometry} material={materials.neptune} />
@@ -135,6 +211,7 @@ export default function Model(props) {
                 scale={54.22}
                 onPointerOver={(e) => handlePointerOver(e, 'pluto')}
                 onPointerOut={handlePointerOut}
+                onClick={(e) => handlePlanetClick(e, 'pluto')}
               >
                 <group name="pluto_28" position={[0, 0, 1]} rotation={[0, 0, Math.PI / 2]} scale={hoveredPlanet === 'pluto' ? 0.014 : 0.004}>
                   <mesh name="Object_31" geometry={nodes.Object_31.geometry} material={materials.pluto} />
@@ -147,6 +224,7 @@ export default function Model(props) {
                 scale={-1.879}
                 onPointerOver={(e) => handlePointerOver(e, 'moon')}
                 onPointerOut={handlePointerOut}
+                onClick={(e) => handlePlanetClick(e, 'moon')}
               >
                 <group name="moon_31" position={[0, 0, 1]} rotation={[-0.023, 0, Math.PI / 2]} scale={hoveredPlanet === 'moon' ? 0.106 : 0.096}>
                   <mesh name="Object_34" geometry={nodes.Object_34.geometry} material={materials.moon} />
