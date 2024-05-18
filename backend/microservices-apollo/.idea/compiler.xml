@@ -7,8 +7,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="notification" />
-        <module name="user" />
         <module name="models" />
+        <module name="event" />
+        <module name="user" />
       </profile>
     </annotationProcessing>
   </component>
