@@ -14,8 +14,6 @@ public class EventService {
 
     private String externalApiUrl = "https://lldev.thespacedevs.com/2.2.0/event/";
 
-
-
     public List<EventEntity> getEventsFromExternalApi() {
         RestTemplate restTemplate = new RestTemplate();
         ResponseHandler response = restTemplate.getForObject(externalApiUrl, ResponseHandler.class);
@@ -24,4 +22,7 @@ public class EventService {
 
         return events;
     }
+
+
+
 }
