@@ -1,5 +1,6 @@
 package com.apollo.event.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,17 +10,16 @@ import lombok.NoArgsConstructor;
 import java.util.Date;
 
 @Data
-@Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Table(name = "events")
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class EventEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idEvent;
-    private String title;
+
+    private Long id;
+    private String name;
     private String description;
-    private String regionEvent;
-    private Date predictedDate;
+    private String location;
+    private Date date;
 }
