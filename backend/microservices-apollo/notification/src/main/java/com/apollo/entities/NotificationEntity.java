@@ -1,10 +1,10 @@
 package com.apollo.entities;
 
-import jakarta.persistence.Entity;
+import java.time.LocalDateTime;
+
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,15 +14,16 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Entity
-@Table(name = "users")
-public class UserEntity {
+
+public class NotificationEntity {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idUser;
-    private String password;
-    private String username;
-    private String fullname;
-    private String email;
-    private String data;
+    private Long id;
+    
+    private String url;
+    private String title;
+    private String message;
+    private boolean read;
+    private LocalDateTime createdAt;
 }
