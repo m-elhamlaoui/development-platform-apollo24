@@ -4,3 +4,8 @@ server:
 spring:
   application:
     name: models
+
+ai:
+  ollama:
+    base-url: http://localhost:11434/ # Ensure this URL is correct and the Ollama service is running here
+    model: llama2 # Make sure this is the correct model name and is available in Ollama
