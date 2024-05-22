@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/development-platform-apollo24.iml" filepath="$PROJECT_DIR$/.idea/development-platform-apollo24.iml" />
-      <module fileurl="file://$PROJECT_DIR$/event.iml" filepath="$PROJECT_DIR$/event.iml" />
     </modules>
   </component>
 </project>

@@ -21,7 +21,10 @@ const App = () => {
 
       <div className={`bg-primary ${styles.paddingX} ${styles.flexStart}`}>
         <div className={`${styles.boxWidth}`}>
-          <Services/>
+          <div id="home"></div>
+          <div id="Services">
+            <Services />
+          </div>
           <Footer/>
         </div>
       </div>
