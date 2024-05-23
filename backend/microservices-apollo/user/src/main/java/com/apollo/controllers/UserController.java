@@ -4,6 +4,7 @@ package com.apollo.controllers;
 import java.util.List;
 import java.util.Optional;
 
+import com.apollo.service.KafkaProducerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -33,18 +34,20 @@ public class UserController {
 
     private UserRepository userRepo;
     private SubscriberRepository subscriberRepo;
+    private KafkaProducerService kafkaProducerService;
 
     @GetMapping("/users")
     public List<UserEntity> getUsers() {
         List<UserEntity> userlist = userRepo.findAll();
         return userlist;
-    } 
+    }
 
 
     @PostMapping("/users")
     public ResponseEntity<UserEntity> createUser(@RequestBody UserEntity user) {
         UserEntity usersaved = userRepo.save(user);
-        return new ResponseEntity<>(usersaved,HttpStatus.CREATED);
+        kafkaProducerService.sendMessage(usersaved);
+        return new ResponseEntity<>(usersaved, HttpStatus.CREATED);
     }
 
     @PutMapping("users/{id}")

@@ -14,10 +14,29 @@ spring:
                 format_sql: true
         show-sql: true
 
+    cloud:
+        netflix:
+            eureka:
+                client:
+                    serviceUrl:
+                        defaultZone: http://localhost:8761/eureka/
+                instance:
+                    preferIpAddress: true
+
+    kafka:
+        bootstrap-servers: localhost:9092
+        consumer:
+            group-id: notification-group
+            auto-offset-reset: earliest
+            key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+            value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+            properties:
+                spring:
+                    json:
+                        trusted:
+                            packages: '*'
+
 server:
     port: 8082
 
-eureka:
-    client:
-        service-url:
-            defaultZone: http://localhost:8761/eureka
+
