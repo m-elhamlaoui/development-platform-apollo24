@@ -6,6 +6,8 @@
       <list>
         <option value="$PROJECT_DIR$/backend/microservices-apollo/event/pom.xml" />
         <option value="$PROJECT_DIR$/backend/microservices-apollo/pom.xml" />
+        <option value="$PROJECT_DIR$/EurekaServerApplication/EurekaServerApplication/pom.xml" />
+        <option value="$PROJECT_DIR$/_ApiGatewayApplication/ApiGatewayApplication/pom.xml" />
       </list>
     </option>
   </component>
