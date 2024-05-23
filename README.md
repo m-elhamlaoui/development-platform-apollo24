@@ -2,7 +2,7 @@
 
 # Apollo 24
 
-![Sans-titre-2024-05-23-1843](https://github.com/m-elhamlaoui/development-platform-apollo24/assets/125411704/0e8158c5-b092-4778-b194-40a38ff794af)
+![Sans-titre-2024-05-23-1843 (1)](https://github.com/m-elhamlaoui/development-platform-apollo24/assets/125411704/7ef35d35-e10c-4e63-965d-6966f9fc2e96)
 
 Done by : [full name  @github_username]
 
