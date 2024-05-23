@@ -17,4 +17,9 @@ public class AstronautEventStrategy implements SpaceEventStrategy {
         List<EventEntity> astronautEvents = response.getResults();
         return astronautEvents;
     }
+
+    @Override
+    public List<EventEntity> getAndSaveEventsByIdFromExternalApi(Integer id) {
+        return null;
+    }
 }

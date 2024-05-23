@@ -17,4 +17,9 @@ public class LaunchingEventStrategy implements SpaceEventStrategy {
         List<EventEntity> launchingEvents = response.getResults();
         return launchingEvents;
     }
+
+    @Override
+    public List<EventEntity> getAndSaveEventsByIdFromExternalApi(Integer id) {
+        return null;
+    }
 }

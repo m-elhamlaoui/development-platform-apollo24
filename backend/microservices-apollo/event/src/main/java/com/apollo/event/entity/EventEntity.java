@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
 
@@ -13,10 +15,12 @@ import java.util.Date;
 @NoArgsConstructor
 @Builder
 
+@Document(collection = "event")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class EventEntity implements SpaceEvent {
 
-    private Long id;
+    @Id
+    private Integer id;
     private String name;
     private String description;
     private String location;

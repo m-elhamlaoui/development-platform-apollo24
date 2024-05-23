@@ -6,5 +6,6 @@ import java.util.List;
 
 public interface SpaceEventStrategy {
     List<EventEntity> getEventsFromExternalApi();
+    List<EventEntity> getAndSaveEventsByIdFromExternalApi(Integer id);
 
 }
