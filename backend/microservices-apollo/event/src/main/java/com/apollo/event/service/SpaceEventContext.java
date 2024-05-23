@@ -16,4 +16,9 @@ public class SpaceEventContext {
     public List<EventEntity> getEvents(){
         return strategy.getEventsFromExternalApi();
     }
+
+    public List<EventEntity> getEventsByID(Integer id) {
+        return strategy.getAndSaveEventsByIdFromExternalApi(id);
+    }
+
 }

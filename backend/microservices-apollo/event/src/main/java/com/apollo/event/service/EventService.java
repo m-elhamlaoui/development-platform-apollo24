@@ -1,7 +1,9 @@
 package com.apollo.event.service;
 
 import com.apollo.event.entity.EventEntity;
+import com.apollo.event.repository.EventRepository;
 import com.apollo.event.responseApi.ResponseHandler;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
