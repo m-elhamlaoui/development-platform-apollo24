@@ -80,11 +80,13 @@ One of the design patterns that we used is strategy pattern in the service layer
 
 **- Backend:** Java, Spring Boot
     
-**- Frontend:** React 
+**- Frontend:** React , Vite
     
 **- Database:** PostgreSQL / MongoDB
     
-**- External API:** [Launch Library 2] https://lldev.thespacedevs.com/docs/
+**- External API:** Launch Library 2 : https://lldev.thespacedevs.com/docs/
+
+**- Test:** JUnit, Mockito
         
 **- DevOps:** Docker, Kubernetes, Kafka, Eureka, Grafana ...
     
@@ -120,7 +122,7 @@ The realization phase involved the actual development and deployment of the appl
 
 ### Testing
 
-Unit Testing: Write and execute unit tests for individual components.
+Unit Testing: Write and execute unit tests for individual components using JUnit and Mockito.
 
 ### Deployment
 
