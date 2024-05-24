@@ -46,11 +46,11 @@ The development of the Space Events Web Application followed a structured approa
 
 ### Requirements Gathering
 
-- User Needs: Understand the needs of space enthusiasts to provide timely and accurate updates on space events.
+- **User Needs:** Understand the needs of space enthusiasts to provide timely and accurate updates on space events.
     
-- API Integration: Identify and integrate with reliable external APIs that provide comprehensive space event data.
+- **API Integration:** Identify and integrate with reliable external APIs that provide comprehensive space event data.
 
-- Notification System: Develop a robust notification system to inform users about updates.
+- **Notification System:** Develop a robust notification system to inform users about updates.
 
 ### System Design
 
@@ -66,11 +66,11 @@ Adopt a microservices architecture to allow independent development, testing, an
 
 #### Design Patterns :
 
-- Model-View-Controller (MVC) Pattern
+**- Model-View-Controller (MVC) Pattern**
 
 The MVC pattern divides the application into three interconnected components, promoting separation of concerns and making the codebase more manageable and scalable.
 
-- Strategy Pattern
+**- Strategy Pattern**
 
 One of the design patterns that we used is strategy pattern in the service layer of the event microservice
 
@@ -78,15 +78,15 @@ One of the design patterns that we used is strategy pattern in the service layer
 
 ### Technologies Used
 
-- Backend: Java, Spring Boot
+**- Backend:** Java, Spring Boot
     
-- Frontend: React 
+**- Frontend:** React 
     
-- Database: PostgreSQL / MongoDB
+**- Database:** PostgreSQL / MongoDB
     
-- External API: [Launch Library 2] https://lldev.thespacedevs.com/docs/
+**- External API:** [Launch Library 2] https://lldev.thespacedevs.com/docs/
         
-- DevOps: Docker, Kubernetes, Kafka, Eureka, Grafana ...
+**- DevOps:** Docker, Kubernetes, Kafka, Eureka, Grafana ...
     
 ## Realization
 
@@ -100,11 +100,11 @@ The realization phase involved the actual development and deployment of the appl
     
 2- Microservices Implementation:
 
-Event Service: Fetches and processes data from the external API.
+**Event Service:** Fetches and processes data from the external API.
         
-User Service: Manages user registrations, logins, and subscriptions.
+**User Service:** Manages user registrations, logins, and subscriptions.
         
-Notification Service: Sends notifications to users about event updates.
+**Notification Service:** Sends notifications to users about event updates.
     
 3- Frontend Development: Design and develop the user interface to display events and manage subscriptions.
     
@@ -124,15 +124,15 @@ Unit Testing: Write and execute unit tests for individual components.
 
 ### Deployment
 
-Containerization: Use Docker to containerize microservices for consistent environments across development, testing, and production.
+**Containerization:** Use Docker to containerize microservices for consistent environments across development, testing, and production.
     
-Orchestration: Deploy and manage containers using Kubernetes.
+**Orchestration:** Deploy and manage containers using Kubernetes.
 
 ### Monitoring 
 
-Prometheus: Used for collecting and storing metrics about the application’s performance. Prometheus scrapes metrics from instrumented jobs, stores them, and makes them available for querying.
+**Prometheus:** Used for collecting and storing metrics about the application’s performance. Prometheus scrapes metrics from instrumented jobs, stores them, and makes them available for querying.
     
-Grafana: Provides a powerful and beautiful dashboard for visualizing metrics collected by Prometheus. Grafana helps in creating alerts, and detailed visual reports to monitor the health and performance of the application.
+**Grafana:** Provides a powerful and beautiful dashboard for visualizing metrics collected by Prometheus. Grafana helps in creating alerts, and detailed visual reports to monitor the health and performance of the application.
 
 ## Conclusion
 
