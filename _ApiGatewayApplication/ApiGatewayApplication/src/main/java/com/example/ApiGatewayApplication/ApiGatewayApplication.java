@@ -19,7 +19,7 @@ public class ApiGatewayApplication {
 	{
 		return builder.routes()
 				.route("events", p -> p
-						.path("/events")
+						.path("/events/**")
 						.uri("http://localhost:8080"))
 
 				.route("users",p -> p

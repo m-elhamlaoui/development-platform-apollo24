@@ -1,12 +1,12 @@
 package com.apollo.event.service;
 
 import com.apollo.event.entity.EventEntity;
-import com.apollo.event.entity.SpaceEvent;
 import com.apollo.event.repository.EventRepository;
 import com.apollo.event.service.strategy.GenericEventStrategy;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class SpaceEventService {
@@ -52,5 +52,8 @@ public class SpaceEventService {
         }
     }
 
+    public Optional<EventEntity> getSpaceEventById(Integer id){
+        return eventRepository.findById(id);
+    }
 
 }
