@@ -20,6 +20,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="ApiGatewayApplication" options="-parameters" />
       <module name="EurekaServerApplication" options="-parameters" />
+      <module name="event" options="-parameters" />
       <module name="models" options="-parameters" />
     </option>
   </component>

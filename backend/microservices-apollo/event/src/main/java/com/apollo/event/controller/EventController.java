@@ -1,21 +1,12 @@
 package com.apollo.event.controller;
 
 import com.apollo.event.entity.EventEntity;
-import com.apollo.event.repository.EventRepository;
-import com.apollo.event.responseApi.ResponseHandler;
 import com.apollo.event.service.EventService;
 import com.apollo.event.service.SpaceEventService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
 
 @RestController
 public class EventController {
@@ -23,6 +14,7 @@ public class EventController {
     @Autowired
     private EventService eventService;
     private final SpaceEventService spaceService;
+
 
     public EventController(SpaceEventService spaceService) {
         this.spaceService = spaceService;
@@ -53,5 +45,6 @@ public class EventController {
     public List<EventEntity> fetchAndSaveEventsById(@PathVariable Integer id) {
         return spaceService.saveEventById(id);
     }
+
 
 }

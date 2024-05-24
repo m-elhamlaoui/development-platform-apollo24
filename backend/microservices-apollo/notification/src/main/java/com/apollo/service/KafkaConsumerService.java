@@ -11,4 +11,5 @@ public class KafkaConsumerService {
     public void listen(UserEntity user) {
         System.out.println("Received User: " + user);
     }
+
 }
