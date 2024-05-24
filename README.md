@@ -16,6 +16,24 @@ Supervised by :
 
           M. MAHMOUD EL HAMLAOUI @ELHAMLAOUI
 
+## Table of contents
+
+1. General Context
+2. Conception and analysis
+   2.1. Requirements Gathering
+   2.2. System Design
+   2.2.1. Microservices Architecture
+   2.2.2. Class Diagram
+   2.2.3. Design Patterns
+   2.3. Technologies Used
+3. Realization
+   3.1. Development
+   3.2. Integration
+   3.3. Testing
+   3.4. Deployment
+   3.5. Monitoring
+4. Conclusion
+
 
 ## General Context
 
@@ -58,17 +76,17 @@ One of the design patterns that we used is strategy pattern in the service layer
 
 ![Screenshot from 2024-05-23 22-48-36](https://github.com/m-elhamlaoui/development-platform-apollo24/assets/123819933/40896899-d006-4e89-b2b9-12195b4c3055)
 
-Technologies Used
+### Technologies Used
 
-    - Backend: Java, Spring Boot
+- Backend: Java, Spring Boot
     
-    - Frontend: React 
+- Frontend: React 
     
-    - Database: PostgreSQL / MongoDB
+- Database: PostgreSQL / MongoDB
     
-    - External API: [Launch Library 2] https://lldev.thespacedevs.com/docs/
+- External API: [Launch Library 2] https://lldev.thespacedevs.com/docs/
         
-    - DevOps: Docker, Kubernetes, Kafka, Eureka, Grafana ...
+- DevOps: Docker, Kubernetes, Kafka, Eureka, Grafana ...
     
 ## Realization
 
@@ -82,11 +100,11 @@ The realization phase involved the actual development and deployment of the appl
     
 2- Microservices Implementation:
 
-        Event Service: Fetches and processes data from the external API.
+Event Service: Fetches and processes data from the external API.
         
-        User Service: Manages user registrations, logins, and subscriptions.
+User Service: Manages user registrations, logins, and subscriptions.
         
-        Notification Service: Sends notifications to users about event updates.
+Notification Service: Sends notifications to users about event updates.
     
 3- Frontend Development: Design and develop the user interface to display events and manage subscriptions.
     
