@@ -60,7 +60,6 @@ public class SubscriberController {
                                                                       @RequestBody SubscriberEntity subscriber) {
         SubscriberEntity subscriberfound = subscriberRepo.findById(id).orElse(null);
         if(subscriberfound!=null){
-            Optional.ofNullable(subscriber.getRegion()).ifPresent(subscriberfound::setRegion);
             Optional.ofNullable(subscriber.getEmail()).ifPresent(subscriberfound::setEmail);
             subscriberRepo.save(subscriberfound);
             return new ResponseEntity<>(subscriberfound,HttpStatus.OK);

@@ -5,6 +5,8 @@ import org.springframework.stereotype.Repository;
 
 import com.apollo.entities.SubscriberEntity;
 
+
 @Repository
 public interface SubscriberRepository extends JpaRepository<SubscriberEntity,Long> {
+    SubscriberEntity findByEmail(String email);
 } 

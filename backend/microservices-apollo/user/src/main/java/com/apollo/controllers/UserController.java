@@ -1,16 +1,22 @@
 package com.apollo.controllers;
 
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import com.apollo.service.KafkaProducerService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 import com.apollo.entities.SubscriberEntity;
+import com.apollo.entities.ListEvent;
+import com.apollo.entities.ResponseHandler;
+
 import com.apollo.entities.UserEntity;
 import com.apollo.repositories.SubscriberRepository;
 import com.apollo.repositories.UserRepository;
@@ -77,11 +83,31 @@ public class UserController {
         }
     }
 
-    @PostMapping("users/subscribe/{region}")
-    public ResponseEntity<String> subscribe(@PathVariable("region") String region,@RequestBody UserEntity user) {
+    @PostMapping("users/subscribe/{id}")
+    public ResponseEntity<String> subscribe(@PathVariable("id") Long id,@RequestBody UserEntity user) {
+
+        RestTemplate restTemplate = new RestTemplate();
+        ListEvent response = restTemplate.getForObject("http://localhost:8084/events/fetchAndSave/{id}",
+        ListEvent.class);
+        assert response != null;
+        
         UserEntity userfound = userRepo.findById(user.getIdUser()).orElse(null);
-        SubscriberEntity subscriber = SubscriberEntity.builder().region(region).email(userfound.getEmail()).build();
-        subscriberRepo.save(subscriber);
+        SubscriberEntity subscriber = subscriberRepo.findByEmail(userfound.getEmail());
+        if(subscriber!=null) {
+            List<ResponseHandler> events = subscriber.getEvents();
+            events.addAll(response.getEvents());
+            subscriber.setEvents(events);
+            subscriberRepo.save(subscriber);
+        }
+        else{
+            List<ResponseHandler> events = response.getEvents();
+            SubscriberEntity subscriberNew = SubscriberEntity
+                    .builder()
+                    .email(userfound.getEmail())
+                    .events(events)
+                    .build();
+            subscriberRepo.save(subscriberNew);
+        }
         return new ResponseEntity<>("user subscribed successfully",HttpStatus.CREATED);
     }
     

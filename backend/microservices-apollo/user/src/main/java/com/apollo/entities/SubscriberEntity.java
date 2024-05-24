@@ -1,5 +1,7 @@
 package com.apollo.entities;
 
+import java.util.List;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -26,5 +28,5 @@ public class SubscriberEntity {
 
     private String email;
 
-    private String region;
+    private List<ResponseHandler> events;
 }
