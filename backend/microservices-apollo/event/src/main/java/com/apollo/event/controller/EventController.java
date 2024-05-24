@@ -41,7 +41,7 @@ public class EventController {
 
     // Show the Events Stored in the db
     @GetMapping("/findAll")
-    public List<EventEntity> getBooks() {
+    public List<EventEntity> getEventsFromDB() {
         return spaceService.findAll();
     }
 
